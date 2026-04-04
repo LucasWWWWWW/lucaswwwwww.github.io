@@ -4,63 +4,213 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2min每日早报</title>
+  <meta name="description" content="用2分钟看懂昨日政治、经济、科技要事。" />
   <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #111827;
+      --text: #f5f7fa;
+      --muted: #b6c0cc;
+      --line: rgba(255,255,255,.08);
+      --blue: #93c5fd;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
+      background: var(--bg);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0b0f14;
-      color: #f5f7fa;
     }
+
     .wrap {
-      width: min(920px, 92vw);
+      width: min(980px, 92vw);
       margin: 0 auto;
-      padding: 40px 0 72px;
+      padding: 28px 0 64px;
     }
-    h1 {
-      font-size: clamp(28px, 6vw, 52px);
-      line-height: 1.1;
-      margin: 0 0 16px;
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
     }
-    p {
-      font-size: 16px;
-      line-height: 1.75;
-      color: #c9d1d9;
-      margin: 0 0 16px;
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .2px;
     }
-    .card {
-      margin-top: 28px;
-      background: #111827;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      padding: 20px;
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .95rem;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 28px 0 18px;
+    }
+
     .tag {
       display: inline-block;
       font-size: 12px;
-      padding: 5px 10px;
+      padding: 6px 10px;
       border-radius: 999px;
-      background: #1f2937;
-      color: #93c5fd;
-      margin-bottom: 12px;
+      background: #172033;
+      color: var(--blue);
+      margin-bottom: 14px;
     }
-    a {
-      color: #93c5fd;
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 6vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 22px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1px solid var(--line);
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #0b0f14;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .card-label {
+      font-size: .8rem;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+
+    .card h2 {
+      margin: 0 0 12px;
+      font-size: 1.3rem;
+      line-height: 1.35;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: .96rem;
+    }
+
+    .card a {
+      color: var(--blue);
       text-decoration: none;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .footer {
+      margin-top: 40px;
+      color: #8190a5;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 780px) {
+      .grid {
+        grid-template-columns: 1.4fr .9fr;
+      }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="tag">GitHub Pages 已上线</div>
-    <h1>【2min每日早报】</h1>
-    <p>这是站点的第一个测试页面。先把发布链路打通，再继续做日报模板、历史归档和 X 导流。</p>
+    <header class="topbar">
+      <div class="brand">2min每日早报</div>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./archive.html">历史日报</a>
+      </nav>
+    </header>
 
-    <div class="card">
-      <p><strong>当前状态：</strong>站点初始化成功。</p>
-      <p><strong>下一步目标：</strong>加入最新一期日报页面、archive 页面、移动端卡片布局。</p>
+    <section class="hero">
+      <div class="tag">全球要事压缩阅读</div>
+      <h1>昨天世界发生了什么？</h1>
+      <div class="subtitle">
+        用 2 分钟快速看懂昨日政治、经济、科技三大领域的重要动态。首页看最新一期，归档页看历史日报。
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="./2026-04-04.html">阅读最新一期</a>
+        <a class="btn btn-secondary" href="./archive.html">查看历史归档</a>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-label">最新一期</div>
+        <h2><a href="./2026-04-04.html">2026-04-04 日报</a></h2>
+        <p>
+          包含政治、经济、科技三大领域的重点事件摘要，适合移动端快速阅读，也可在桌面端查看完整结构化展示。
+        </p>
+      </article>
+
+      <aside class="card">
+        <div class="card-label">历史入口</div>
+        <h2><a href="./archive.html">进入 Archive</a></h2>
+        <p>
+          浏览过去的日报记录，后续会逐步扩展为按日期连续归档的内容库。
+        </p>
+      </aside>
+    </section>
+
+    <div class="footer">
+      站点已成功部署在 GitHub Pages。下一步将继续完善导航、归档和分享预览。
     </div>
   </div>
 </body>
