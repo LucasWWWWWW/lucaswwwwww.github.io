@@ -1,1 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>历史日报 | 2min每日早报</title>
+  <meta name="description" content="浏览 2min每日早报 的历史归档，按日期查看过往日报内容。" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #111827;
+      --text: #f5f7fa;
+      --muted: #b6c0cc;
+      --line: rgba(255,255,255,.08);
+      --blue: #93c5fd;
+      --blue-soft: #172033;
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap {
+      width: min(980px, 92vw);
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .95rem;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 20px 0 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.08;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .archive-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .entry {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+
+    .entry:hover {
+      transform: translateY(-2px);
+      border-color: rgba(147, 197, 253, .28);
+    }
+
+    .entry-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .date {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    .desc {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: .96rem;
+      margin-bottom: 14px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      font-size: .8rem;
+      color: #d8e4f2;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 999px;
+      padding: 6px 10px;
+    }
+
+    .back {
+      margin-top: 32px;
+    }
+
+    .back a {
+      color: var(--blue);
+      text-decoration: none;
+      font-size: .95rem;
+    }
+
+    .footer {
+      margin-top: 40px;
+      color: #8190a5;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 860px) {
+      .archive-list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">2min每日早报</div>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./archive.html" class="active">历史日报</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="tag">Archive</div>
+      <h1>历史日报归档</h1>
+      <div class="subtitle">
+        这里收录已经发布的日报页面。建议保持“按日期倒序排列”：最新内容永远放最前面，旧内容依次下沉。
+      </div>
+    </section>
+
+    <section class="archive-list">
+      <a class="entry" href="./2026-04-04.html">
+        <div class="entry-top">
+          <div class="date">2026-04-04</div>
+          <div class="badge">最新一期</div>
+        </div>
+        <div class="desc">
+          聚焦昨日政治、经济、科技三大领域的重要动态，适合移动端快速浏览，也可在桌面端查看完整结构化内容。
+        </div>
+        <div class="meta">
+          <span class="chip">政治</span>
+          <span class="chip">经济</span>
+          <span class="chip">科技</span>
+        </div>
+      </a>
+
+      <a class="entry" href="./2026-04-03.html">
+        <div class="entry-top">
+          <div class="date">2026-04-03</div>
+        </div>
+        <div class="desc">
+          较早一期日报内容，保留为历史归档示例。后续可以继续按相同模板扩展更多日期页面。
+        </div>
+        <div class="meta">
+          <span class="chip">历史记录</span>
+          <span class="chip">日报归档</span>
+        </div>
+      </a>
+    </section>
+
+    <div class="back">
+      <a href="./index.html">← 返回首页</a>
+    </div>
+
+    <div class="footer">
+      维护规则：新增日报时，在最前面追加一张新卡，并把旧的“最新一期”标记去掉。
+    </div>
+  </div>
+</body>
+</html>
