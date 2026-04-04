@@ -1,1 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026-04-04 日报 | 2min每日早报</title>
+  <meta name="description" content="2026-04-04 的 2min每日早报，涵盖政治、经济、科技三大领域的重要动态。" />
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #111827;
+      --text: #f5f7fa;
+      --muted: #b6c0cc;
+      --line: rgba(255,255,255,.08);
+      --blue: #93c5fd;
+      --blue-soft: #172033;
+    }
 
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .2px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .95rem;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 18px 0 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.08;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 820px;
+      margin-bottom: 20px;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .quick-links a {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--text);
+      text-decoration: none;
+      font-size: .92rem;
+    }
+
+    .quick-links a:hover {
+      border-color: rgba(147, 197, 253, .28);
+    }
+
+    .report-shell {
+      background: transparent;
+      border-radius: 20px;
+    }
+
+    /* 桌面端表格 */
+    .desktop-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .desktop-table th,
+    .desktop-table td {
+      border: 1px solid rgba(255,255,255,.06);
+      padding: 0.75rem;
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .desktop-table th {
+      background: rgba(255,255,255,.04);
+      font-weight: 700;
+    }
+
+    .desktop-table td a,
+    .desktop-table th a {
+      color: var(--blue);
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    /* 手机端卡片 */
+    .card-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem;
+      background: var(--card);
+    }
+
+    .card h2 {
+      font-size: 1.05rem;
+      margin: 0 0 0.5rem 0;
+      line-height: 1.45;
+    }
+
+    .card .field,
+    .card .priority {
+      font-size: 0.88rem;
+      margin-bottom: 0.3rem;
+      color: var(--muted);
+    }
+
+    .card details {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .card .sources {
+      font-size: 0.82rem;
+      color: var(--blue);
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    .pager {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .pager-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .pager-label {
+      font-size: .8rem;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+
+    .pager-title {
+      font-size: 1.08rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .pager-desc {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: .94rem;
+    }
+
+    .footer {
+      margin-top: 36px;
+      color: #8190a5;
+      font-size: .9rem;
+    }
+
+    @media (min-width: 860px) {
+      .pager {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 600px) {
+      .card-container {
+        display: none;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .desktop-table {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <a class="brand" href="./index.html">2min每日早报</a>
+      <nav class="nav">
+        <a href="./index.html">首页</a>
+        <a href="./archive.html">历史日报</a>
+        <a href="./2026-04-04.html" class="active">本期</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="tag">单日详情</div>
+      <h1>2026-04-04 日报</h1>
+      <div class="subtitle">
+        本页为单日完整内容页。桌面端优先展示结构化表格，手机端自动切换为卡片式阅读。
+      </div>
+
+      <div class="quick-links">
+        <a href="./index.html">返回首页</a>
+        <a href="./archive.html">查看归档</a>
+        <a href="./2026-04-03.html">上一篇：2026-04-03</a>
+      </div>
+    </section>
+
+    <main class="report-shell">
+      <table class="desktop-table">
+  <thead>
+    <tr>
+      <th>优先级</th>
+      <th>所属领域</th>
+      <th>事项</th>
+      <th>概述</th>
+      <th>主要来源</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>政治/经济</td>
+      <td>特朗普宣布伊朗战争近完成并扬言摧毁关键设施</td>
+      <td>在电视讲话中，美国总统特朗普称美军已达成对伊朗战争的主要军事目标，若伊朗不让步将对其电力和石油设施实施“石器时代”式打击。讲话后股市下跌，美元走强，油价上涨，突显冲突延续对全球市场的震荡。</td>
+      <td><a href="#" target="_blank">【182653296967519†L229-L233】</a> <a href="#" target="_blank">【182653296967519†L220-L234】</a> </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>经济</td>
+      <td>美国3月新增17.8万非农岗位但劳动力参与率下降</td>
+      <td>美国劳工部数据显示，3月非农就业增加17.8万，失业率降至4.3%，主要原因是近40万人退出劳动力市场；平均每周工时缩减至34.2小时，工资增速放缓至近五年来最低。分析称就业反弹可能夸大了劳动力市场健康度，伊朗战争及关税不确定性仍可能拖累经济。</td>
+      <td><a href="#" target="_blank">【47968551851660†L190-L218】</a> <a href="#" target="_blank">【47968551851660†L223-L247】</a> <a href="#" target="_blank">【860940081444770†L57-L104】</a></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>经济</td>
+      <td>强劲就业报告推动短债收益率走高、股票期货下跌</td>
+      <td>受就业数据强劲影响，美国2年期国债收益率升至3.84%，标准普尔500指数期货下跌0.3%，各主要货币兑美元走弱，反映投资者预期美联储可能维持紧缩姿态，市场对通胀和战争风险的担忧仍在。</td>
+      <td><a href="#" target="_blank">【963741966571300†L220-L229】</a> <a href="#" target="_blank">【182653296967519†L229-L233】</a></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>政治</td>
+      <td>参议院共和党方案拟重新开放国土安全部</td>
+      <td>美国参议院共和党领袖再次通过一项法案，寻求为国土安全部提供至9月30日的资金，却不增加移民执法预算；此举被视为结束政府停摆的折衷方案。众议院议长约翰逊在特朗普干预后改口支持该计划。</td>
+      <td><a href="#" target="_blank">【702165000698651†L283-L291】</a> <a href="#" target="_blank">【580121755377454†L113-L129】</a></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>政治</td>
+      <td>美国取消对委内瑞拉代理总统德尔西·罗德里格斯制裁</td>
+      <td>美国财政部将委内瑞拉临时总统德尔西·罗德里格斯从制裁名单移除，罗德里格斯欢迎美方“重要一步”。此举被视为华盛顿与卡拉卡斯关系缓和的信号，但美国尚未恢复对委出口石油的全面授权。</td>
+      <td><a href="#" target="_blank">【452891799915732†L94-L101】</a> <a href="#" target="_blank">【320244767552995†L124-L133】</a></td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>科技</td>
+      <td>Anthropic内部源代码泄露揭示未发布功能</td>
+      <td>人工智能公司Anthropic因打包错误将一份包含约2000个文件、50万行代码的调试包上传到GitHub并被广泛镜像。泄露代码显示可能推出的“主动模式”、持久性虚拟伴侣等功能。公司称未涉及客户数据，并对侵权副本发出删除请求。</td>
+      <td><a href="#" target="_blank">【482923178574363†L39-L63】</a> <a href="#" target="_blank">【338987160462800†L171-L188】</a> <a href="#" target="_blank">【222851853774445†L78-L112】</a></td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>科技</td>
+      <td>OpenAI收购科技脱口秀TBPN扩大媒体影响力</td>
+      <td>OpenAI宣布收购知名科技播客节目TBPN，其创始人约翰·库根和约迪·黑斯将加入OpenAI团队。OpenAI表示此举有助于公司更好地传达未来计划，并保持该节目编采独立，引发业界对大型AI公司涉足媒体的关注。</td>
+      <td><a href="#" target="_blank">【519930907460641†L200-L224】</a></td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>科技/政策</td>
+      <td>中国拟出台虚拟数字人管理规定</td>
+      <td>中国国家网信办发布征求意见稿，要求虚拟数字人产品显著标识真实和虚构身份，禁止向未成年人提供虚拟亲密服务，禁止未经他人同意使用其个人信息，并禁止制作危害国家统一、含性暗示或虐待的内容。行业内呼吁规范发展以保护消费者与社会秩序。</td>
+      <td><a href="#" target="_blank">【83052199941681†L195-L218】</a></td>
+    </tr>
+  </tbody>
+</table>
+
+      <div class="card-container">
+  <!-- card 1 -->
+  <div class="card">
+    <h2>特朗普宣布伊朗战争近完成并扬言摧毁关键设施</h2>
+    <div class="field">领域：政治/经济</div>
+    <div class="priority">优先级：1</div>
+    <details>
+      <summary>概述：美军已达成主要目标，若伊朗不让步将遭受严重打击；讲话影响市场</summary>
+      <p>在电视讲话中，美国总统特朗普称美军已达成对伊朗战争的主要军事目标，若伊朗不让步将对其电力和石油设施实施“石器时代”式打击。讲话后股市下跌，美元走强，油价上涨，突显冲突延续对全球市场的震荡。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【182653296967519†L229-L233】</a> <a href="#">【182653296967519†L220-L234】</a></div>
+  </div>
+  <!-- card 2 -->
+  <div class="card">
+    <h2>美国3月新增17.8万非农岗位但劳动力参与率下降</h2>
+    <div class="field">领域：经济</div>
+    <div class="priority">优先级：2</div>
+    <details>
+      <summary>概述：就业增幅达15个月新高，但40万人离开劳动力市场，工资增速放缓</summary>
+      <p>美国劳工部数据显示，3月非农就业增加17.8万，失业率降至4.3%，主要原因是近40万人退出劳动力市场；平均每周工时缩减至34.2小时，工资增速放缓至近五年来最低。分析称就业反弹可能夸大了劳动力市场健康度，伊朗战争及关税不确定性仍可能拖累经济。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【47968551851660†L190-L218】</a> <a href="#">【47968551851660†L223-L247】</a> <a href="#">【860940081444770†L57-L104】</a></div>
+  </div>
+  <!-- card 3 -->
+  <div class="card">
+    <h2>强劲就业报告推动短债收益率走高、股票期货下跌</h2>
+    <div class="field">领域：经济</div>
+    <div class="priority">优先级：3</div>
+    <details>
+      <summary>概述：良好的就业数据推升债券收益率，抑制股指期货</summary>
+      <p>受就业数据强劲影响，美国2年期国债收益率升至3.84%，标准普尔500指数期货下跌0.3%，各主要货币兑美元走弱，反映投资者预期美联储可能维持紧缩姿态，市场对通胀和战争风险的担忧仍在。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【963741966571300†L220-L229】</a> <a href="#">【182653296967519†L229-L233】</a></div>
+  </div>
+  <!-- card 4 -->
+  <div class="card">
+    <h2>参议院共和党方案拟重新开放国土安全部</h2>
+    <div class="field">领域：政治</div>
+    <div class="priority">优先级：4</div>
+    <details>
+      <summary>概述：法案为国土安全部提供经费但不增加移民执法预算</summary>
+      <p>美国参议院共和党领袖再次通过一项法案，寻求为国土安全部提供至9月30日的资金，却不增加移民执法预算；此举被视为结束政府停摆的折衷方案。众议院议长约翰逊在特朗普干预后改口支持该计划。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【702165000698651†L283-L291】</a> <a href="#">【580121755377454†L113-L129】</a></div>
+  </div>
+  <!-- card 5 -->
+  <div class="card">
+    <h2>美国取消对委内瑞拉代理总统德尔西·罗德里格斯制裁</h2>
+    <div class="field">领域：政治</div>
+    <div class="priority">优先级：5</div>
+    <details>
+      <summary>概述：罗德里格斯被移出美国制裁名单，双方关系或缓和</summary>
+      <p>美国财政部将委内瑞拉临时总统德尔西·罗德里格斯从制裁名单移除，罗德里格斯欢迎美方“重要一步”。此举被视为华盛顿与卡拉卡斯关系缓和的信号，但美国尚未恢复对委出口石油的全面授权。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【452891799915732†L94-L101】</a> <a href="#">【320244767552995†L124-L133】</a></div>
+  </div>
+  <!-- card 6 -->
+  <div class="card">
+    <h2>Anthropic内部源代码泄露揭示未发布功能</h2>
+    <div class="field">领域：科技</div>
+    <div class="priority">优先级：6</div>
+    <details>
+      <summary>概述：调试包泄露显示“主动模式”等新特性，公司称未涉及用户数据</summary>
+      <p>人工智能公司Anthropic因打包错误将一份包含约2000个文件、50万行代码的调试包上传到GitHub并被广泛镜像。泄露代码显示可能推出的“主动模式”、持久性虚拟伴侣等功能。公司称未涉及客户数据，并对侵权副本发出删除请求。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【482923178574363†L39-L63】</a> <a href="#">【338987160462800†L171-L188】</a> <a href="#">【222851853774445†L78-L112】</a></div>
+  </div>
+  <!-- card 7 -->
+  <div class="card">
+    <h2>OpenAI收购科技脱口秀TBPN扩大媒体影响力</h2>
+    <div class="field">领域：科技</div>
+    <div class="priority">优先级：7</div>
+    <details>
+      <summary>概述：收购科技播客被视为AI公司涉足媒体的标志</summary>
+      <p>OpenAI宣布收购知名科技播客节目TBPN，其创始人约翰·库根和约迪·黑斯将加入OpenAI团队。OpenAI表示此举有助于公司更好地传达未来计划，并保持该节目编采独立，引发业界对大型AI公司涉足媒体的关注。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【519930907460641†L200-L224】</a></div>
+  </div>
+  <!-- card 8 -->
+  <div class="card">
+    <h2>中国拟出台虚拟数字人管理规定</h2>
+    <div class="field">领域：科技/政策</div>
+    <div class="priority">优先级：8</div>
+    <details>
+      <summary>概述：征求意见稿要求标识身份并禁止向未成年人提供虚拟亲密服务</summary>
+      <p>中国国家网信办发布征求意见稿，要求虚拟数字人产品显著标识真实和虚构身份，禁止向未成年人提供虚拟亲密服务，禁止未经他人同意使用其个人信息，并禁止制作危害国家统一、含性暗示或虐待的内容。行业内呼吁规范发展以保护消费者与社会秩序。</p>
+    </details>
+    <div class="sources">来源：<a href="#">【83052199941681†L195-L218】</a></div>
+  </div>
+</div>
+    </main>
+
+    <section class="pager">
+      <div class="pager-card">
+        <div class="pager-label">导航</div>
+        <div class="pager-title"><a href="./archive.html">返回历史归档</a></div>
+        <div class="pager-desc">
+          查看已经发布的所有日报，并按日期继续扩展内容库。
+        </div>
+      </div>
+
+      <div class="pager-card">
+        <div class="pager-label">上一篇</div>
+        <div class="pager-title"><a href="./2026-04-03.html">2026-04-03 日报</a></div>
+        <div class="pager-desc">
+          回看上一期内容，形成连续阅读路径。
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      维护规则：后续每新增一期，复制这一页作为模板，修改日期、标题、导航与上一篇链接即可。
+    </div>
+  </div>
+</body>
+</html>
